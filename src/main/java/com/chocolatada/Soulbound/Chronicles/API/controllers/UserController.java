@@ -1,6 +1,7 @@
 package com.chocolatada.Soulbound.Chronicles.API.controllers;
 
 import com.chocolatada.Soulbound.Chronicles.API.entities.UserEntity;
+import com.chocolatada.Soulbound.Chronicles.API.exceptions.character.CharacterInvalidName;
 import com.chocolatada.Soulbound.Chronicles.API.exceptions.user.UserInvalidId;
 import com.chocolatada.Soulbound.Chronicles.API.exceptions.user.UserInvalidPassword;
 import com.chocolatada.Soulbound.Chronicles.API.exceptions.user.UserInvalidUsername;
@@ -27,11 +28,13 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserEntity> getById(@PathVariable("id") int id) throws UserInvalidId {
         UserEntity user = service.getById(id);
+
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
     @GetMapping()
     public ResponseEntity<ArrayList<UserEntity>> getAll() {
         ArrayList<UserEntity> users = service.getAll();
+
         return new ResponseEntity(users, HttpStatus.OK);
     }
 }

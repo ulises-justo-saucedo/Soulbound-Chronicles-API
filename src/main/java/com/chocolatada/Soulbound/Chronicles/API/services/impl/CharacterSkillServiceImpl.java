@@ -15,7 +15,7 @@ public class CharacterSkillServiceImpl implements IBasicOperations<CharacterSkil
     private ICharacterSkillRepository repository;
     private CharacterServiceImpl characterService;
     private SkillServiceImpl skillService;
-    public CharacterSkillImpl(ICharacterSkillRepository repository, CharacterServiceImpl characterService, SkillServiceImpl skillService) {
+    public CharacterSkillServiceImpl(ICharacterSkillRepository repository, CharacterServiceImpl characterService, SkillServiceImpl skillService) {
         this.repository = repository;
         this.characterService = characterService;
         this.skillService = skillService;
@@ -49,7 +49,7 @@ public class CharacterSkillServiceImpl implements IBasicOperations<CharacterSkil
             skillService.getById(skillId);
         }
 
-        return repository.getById(id);
+        return repository.findById(id).orElse(null);
     }
 
     @Override

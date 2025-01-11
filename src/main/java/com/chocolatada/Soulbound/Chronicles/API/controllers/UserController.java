@@ -27,11 +27,13 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserEntity> getById(@PathVariable("id") int id) throws UserInvalidId {
         UserEntity user = service.getById(id);
+
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
     @GetMapping()
     public ResponseEntity<ArrayList<UserEntity>> getAll() {
         ArrayList<UserEntity> users = service.getAll();
+
         return new ResponseEntity(users, HttpStatus.OK);
     }
 }

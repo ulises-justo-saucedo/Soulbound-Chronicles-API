@@ -12,18 +12,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class UserExceptionHandler {
     @ExceptionHandler(UserInvalidId.class)
     public ResponseEntity<String> invalidId(UserInvalidId e) {
-        return response(e, HttpStatus.BAD_REQUEST);
+        return Response.send(e, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(UserInvalidUsername.class)
     public ResponseEntity<String> invalidUsername(UserInvalidUsername e) {
-        return response(e, HttpStatus.BAD_REQUEST);
+        return Response.send(e, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(UserInvalidPassword.class)
     public ResponseEntity<String> invalidPassword(UserInvalidPassword e) {
-        return response(e, HttpStatus.BAD_REQUEST);
-    }
-    private ResponseEntity<String> response(Exception e, HttpStatus status) {
-        e.printStackTrace();
-        return new ResponseEntity<>(e.getMessage(), status);
+        return Response.send(e, HttpStatus.BAD_REQUEST);
     }
 }

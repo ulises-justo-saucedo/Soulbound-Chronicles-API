@@ -1,7 +1,6 @@
 package com.chocolatada.Soulbound.Chronicles.API.controllers;
 
 import com.chocolatada.Soulbound.Chronicles.API.entities.UserEntity;
-import com.chocolatada.Soulbound.Chronicles.API.exceptions.character.CharacterInvalidName;
 import com.chocolatada.Soulbound.Chronicles.API.exceptions.user.UserInvalidId;
 import com.chocolatada.Soulbound.Chronicles.API.exceptions.user.UserInvalidPassword;
 import com.chocolatada.Soulbound.Chronicles.API.exceptions.user.UserInvalidUsername;

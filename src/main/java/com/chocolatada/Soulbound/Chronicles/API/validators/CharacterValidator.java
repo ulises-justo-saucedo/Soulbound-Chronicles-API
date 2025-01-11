@@ -7,7 +7,7 @@ import com.chocolatada.Soulbound.Chronicles.API.exceptions.character.CharacterIn
 public class CharacterValidator {
     public static void validateId(long id, CharacterEntity character) throws CharacterInvalidId {
         if(id < 1)
-            throw new CharacterInvalidId("ERROR: Id '"+id+"' cannot be lesser than 1.");
+            throw new CharacterInvalidId("ERROR: Id '"+id+"' cannot be less than 1.");
 
         if(character == null)
             throw new CharacterInvalidId("ERROR: Id '"+id+"' doesn't correspond to any character.");

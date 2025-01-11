@@ -25,7 +25,7 @@ public class UserController {
         return new ResponseEntity<>(userSaved, HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<UserEntity> getById(@PathVariable("id") int id) throws UserInvalidId {
+    public ResponseEntity<UserEntity> getById(@PathVariable("id") Long id) throws UserInvalidId {
         UserEntity user = service.getById(id);
 
         return new ResponseEntity<>(user, HttpStatus.OK);

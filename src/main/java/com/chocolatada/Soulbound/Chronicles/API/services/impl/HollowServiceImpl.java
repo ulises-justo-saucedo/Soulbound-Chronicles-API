@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class HollowServiceImpl implements IBasicOperations<HollowEntity> {
+public class HollowServiceImpl implements IBasicOperations<HollowEntity, Long> {
     private IHollowRepository repository;
     public HollowServiceImpl(IHollowRepository repository) {
         this.repository = repository;
@@ -41,7 +41,7 @@ public class HollowServiceImpl implements IBasicOperations<HollowEntity> {
     }
 
     @Override
-    public HollowEntity getById(long id) throws HollowInvalidId {
+    public HollowEntity getById(Long id) throws HollowInvalidId {
         HollowEntity hollow = repository.findById(id).orElse(null);
 
         HollowValidator.validateId(id, hollow);

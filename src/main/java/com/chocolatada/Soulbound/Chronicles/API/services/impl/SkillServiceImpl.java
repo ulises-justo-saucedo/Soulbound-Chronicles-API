@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class SkillServiceImpl implements IBasicOperations<SkillEntity> {
+public class SkillServiceImpl implements IBasicOperations<SkillEntity, Long> {
     private ISkillRepository repository;
     public SkillServiceImpl(ISkillRepository repository) {
         this.repository = repository;
@@ -43,7 +43,7 @@ public class SkillServiceImpl implements IBasicOperations<SkillEntity> {
     }
 
     @Override
-    public SkillEntity getById(long id) throws SkillInvalidId {
+    public SkillEntity getById(Long id) throws SkillInvalidId {
         SkillEntity skill = repository.findById(id).orElse(null);
 
         SkillValidator.validateId(id, skill);

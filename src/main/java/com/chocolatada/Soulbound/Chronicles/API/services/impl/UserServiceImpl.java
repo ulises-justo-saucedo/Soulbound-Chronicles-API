@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class UserServiceImpl implements IBasicOperations<UserEntity> {
+public class UserServiceImpl implements IBasicOperations<UserEntity, Long> {
     private IUserRepository repository;
     public UserServiceImpl(IUserRepository repository) {
         this.repository = repository;
@@ -40,7 +40,7 @@ public class UserServiceImpl implements IBasicOperations<UserEntity> {
     }
 
     @Override
-    public UserEntity getById(long id) throws UserInvalidId {
+    public UserEntity getById(Long id) throws UserInvalidId {
         UserEntity user = repository.findById(id).orElse(null);
 
         UserValidator.validateId(id, user);

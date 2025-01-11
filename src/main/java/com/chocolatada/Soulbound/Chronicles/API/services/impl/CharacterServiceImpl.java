@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class CharacterServiceImpl implements IBasicOperations<CharacterEntity> {
+public class CharacterServiceImpl implements IBasicOperations<CharacterEntity, Long> {
     private ICharacterRepository repository;
     public CharacterServiceImpl(ICharacterRepository repository) {
         this.repository = repository;
@@ -39,7 +39,7 @@ public class CharacterServiceImpl implements IBasicOperations<CharacterEntity> {
     }
 
     @Override
-    public CharacterEntity getById(long id) throws CharacterInvalidId {
+    public CharacterEntity getById(Long id) throws CharacterInvalidId {
         CharacterEntity character = repository.findById(id).orElse(null);
 
         CharacterValidator.validateId(id, character);
